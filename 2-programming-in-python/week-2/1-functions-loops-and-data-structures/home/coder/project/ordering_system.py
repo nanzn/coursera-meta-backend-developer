@@ -25,6 +25,11 @@ def calculate_subtotal(order):
     """
     print('Calculating bill subtotal...')
     ### WRITE SOLUTION HERE
+    subtotal = 0
+    for item in order:
+        subtotal += item["price"]
+    
+    return round(subtotal, 2)
 
     raise NotImplementedError()
 
@@ -42,6 +47,7 @@ def calculate_tax(subtotal):
     """
     print('Calculating tax from subtotal...')
     ### WRITE SOLUTION HERE
+    return round(subtotal*0.15, 2)
 
     raise NotImplementedError()
 
@@ -64,6 +70,13 @@ def summarize_order(order):
     """
     print_order(order)
     ### WRITE SOLUTION HERE
+    subtotal = calculate_subtotal(order)
+    tax = calculate_tax(subtotal)
+    total = round(subtotal + tax, 0)
+
+    names = [item["name"] for item in order]
+
+    return names, total
 
     raise NotImplementedError()
 
@@ -101,13 +114,13 @@ def main():
     order = take_order()
     print_order(order)
 
-    # subtotal = calculate_subtotal(order)
-    # print("Subtotal for the order is: " + str(subtotal))
+    subtotal = calculate_subtotal(order)
+    print("Subtotal for the order is: " + str(subtotal))
 
-    # tax = calculate_tax(subtotal)
-    # print("Tax for the order is: " + str(tax))
+    tax = calculate_tax(subtotal)
+    print("Tax for the order is: " + str(tax))
 
-    # items, subtotal = summarize_order(order)
+    items, subtotal = summarize_order(order)
 
 if __name__ == "__main__":
     main()
