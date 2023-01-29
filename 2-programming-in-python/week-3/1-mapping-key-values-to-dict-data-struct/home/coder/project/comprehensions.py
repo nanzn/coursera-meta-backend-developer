@@ -26,6 +26,8 @@ def to_mod_list(employee_list):
       list - A list of strings consisting of name + department.
    """
    ### WRITE SOLUTION CODE HERE
+   map_emp = map(mod, employee_list)
+   return list(map_emp)
 
    raise NotImplementedError()
 
@@ -50,6 +52,8 @@ def generate_usernames(mod_list):
       list - A list of usernames consisting of name + department delimited by underscores.
    """
    ### WRITE SOLUTION CODE HERE
+   mod_list_replaced = [ emp.replace(" ", "_") for emp in mod_list]
+   return mod_list_replaced
 
    raise NotImplementedError()
 
@@ -69,6 +73,8 @@ def map_id_to_initial(employee_list):
       dict - A dictionary mapping an employee's id (value) to their first initial (key).
    """
    ### WRITE SOLUTION CODE HERE
+   emp_dict = { employee["name"][0]: employee["id"] for employee in employee_list }
+   return emp_dict
 
    raise NotImplementedError()
 
