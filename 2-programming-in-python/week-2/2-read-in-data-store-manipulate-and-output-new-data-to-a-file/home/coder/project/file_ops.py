@@ -14,6 +14,11 @@ def read_file(file_name):
         string: contents of the given file.
     """
     ### WRITE SOLUTION HERE
+    f = open(file_name, "r")
+    f_content = f.read()
+    print(f_content)
+    f.close()
+    return f_content
     
     raise NotImplementedError()
 
@@ -32,6 +37,10 @@ def read_file_into_list(file_name):
         list: a list where each element is a line in the file.
     """
     ### WRITE SOLUTION HERE
+    f = open(file_name, "r")
+    f_content_list = f.readlines()
+    f.close()
+    return f_content_list
 
     raise NotImplementedError()
 
@@ -51,7 +60,12 @@ def write_first_line_to_file(file_contents, output_filename):
         output_filename: the name of the file to be written to
     """
     ### WRITE SOLUTION HERE
+    file_contents_list = file_contents.split("\n")
+    f = open(output_filename, "w")
+    f.write(file_contents_list[0])
+    f.close()
 
+    return 
     raise NotImplementedError()
 
 
@@ -70,6 +84,14 @@ def read_even_numbered_lines(file_name):
         list: a list of the even-numbered lines of the file
     """
     ### WRITE SOLUTION HERE
+    f = open(file_name, "r")
+    f_content_list = f.readlines()
+    f_content_list_even = []
+    for i in range(len(f_content_list)):
+        if i%2 != 0:
+            f_content_list_even.append(f_content_list[i])
+    f.close()
+    return f_content_list_even
 
     raise NotImplementedError()
 
@@ -89,6 +111,12 @@ def read_file_in_reverse(file_name):
         list: list of the lines of the file in reverse order.
     """
     ### WRITE SOLUTION HERE
+    f = open(file_name, "r")
+    f_content_list = f.readlines()
+    f_content_list.reverse()
+    print(f_content_list)
+    f.close()
+    return f_content_list
 
     raise NotImplementedError()
 
@@ -98,10 +126,10 @@ Feel free to uncomment/modify/add to them as you wish.
 '''
 def main():
     file_contents = read_file("sampletext.txt")
-    # print(read_file_into_list("sampletext.txt"))
-    # write_first_line_to_file(file_contents, "online.txt")
-    # print(read_even_numbered_lines("sampletext.txt"))
-    # print(read_file_in_reverse("sampletext.txt"))
+    print(read_file_into_list("sampletext.txt"))
+    write_first_line_to_file(file_contents, "online.txt")
+    print(read_even_numbered_lines("sampletext.txt"))
+    print(read_file_in_reverse("sampletext.txt"))
 
 if __name__ == "__main__":
     main()
