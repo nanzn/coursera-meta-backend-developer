@@ -9,14 +9,14 @@
 #   Your total bill is $ 9.74
 
 # Modify the line below
-coffee = input('1 coffee @: $ ')
+coffee = float(input('1 coffee @: $ '))
 
 # Modify the line below
-sandwich = input('1 sandwich @: $ ')
+sandwich = float(input('1 sandwich @: $ '))
 
 # Modify the line below
-cake = input('1 cake @: $ ')
+cake = float(input('1 cake @: $ '))
 
-bill_total = coffee + sandwich + cake
+bill_total = round(coffee + sandwich + cake, 2)
 
 print('Your total bill is $', bill_total)
