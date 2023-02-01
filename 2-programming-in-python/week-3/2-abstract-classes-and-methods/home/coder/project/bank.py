@@ -2,7 +2,7 @@
 from abc import ABC, abstractmethod
 
 # Class Bank
-class Bank(''' YOUR CODE HERE '''):
+class Bank(ABC):
     """ An abstract bank class
 
     [IMPLEMENT ME]
@@ -14,9 +14,18 @@ class Bank(''' YOUR CODE HERE '''):
            adding an '@abstractmethod' tag right above the function declaration.
     """
     ### YOUR CODE HERE
+    def basicinfo(self):
+        print("This is a generic bank")
+        return "Generic bank: 0"
+    
+    @abstractmethod
+    def withdraw(self):
+        pass
+
+
 
 # Class Swiss
-class Swiss('''YOUR CODE HERE'''):
+class Swiss(Bank):
     """ A specific type of bank than derives from class Bank
 
     [IMPLEMENT ME]
@@ -42,6 +51,20 @@ class Swiss('''YOUR CODE HERE'''):
                  original account balance instead.
     """
     ### YOUR CODE HERE
+    bal = 1000
+
+    def basicinfo(self):
+        print("This is the Swiss Bank")
+        return "Swiss Bank: {bal}".format(bal = self.bal)
+    
+    def withdraw(self, amount):
+        if amount > self.bal:
+            print("Insufficient funds")
+        else: 
+            self.bal = self.bal - amount 
+            print("Withdrawn amount: {amount}".format(amount = amount))
+            print("New Balance: {bal}".format(bal = self.bal))
+        return self.bal
 
 # Driver Code
 def main():
